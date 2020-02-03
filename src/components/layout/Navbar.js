@@ -7,7 +7,7 @@ export class Navbar extends Component {
     title: "Github Finder",
     icon: "fab fa-github"
   };
-  // make sure that property have always proper type (string, boolean, number etc.)
+  // make sure that property have always proper data type (string, boolean, number etc.)
   static propTypes = {
     title: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired
