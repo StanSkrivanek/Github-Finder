@@ -2,16 +2,11 @@ import React, { Component } from "react";
 
 class UserItem extends Component {
   // We have deleted constructor an using only state declaration
-  state = {
-    id: "id",
-    login: "mojombo",
-    avatar_url: "https://avatars0.githubusercontent.com/u/1?v=4",
-    html_url: "https://github.com/mojombo"
-  };
-
+  // and also deleted state
   render() {
     //   we have also destructured properties from props object. Now we don't need to use this.state where were originally used
-    const { login, avatar_url, html_url } = this.state;
+    const { login, avatar_url, html_url } = this.props.user;
+    // this.state deleted (we have no state anymore ). Instead using props (`this.props.user`) passed from Users.js
     return (
       <div className="card text-center">
         <img
