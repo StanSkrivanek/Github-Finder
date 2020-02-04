@@ -1,25 +1,46 @@
 import React, { Fragment, Component } from "react";
 import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users";
+import axios from "axios";
 import "./App.css";
 import "./assets/fa/css/all.min.css";
 
 class App extends Component {
-  componentDidMount() {
-    console.log(123);
-  }
+  // Standard Version
+  // componentDidMount() {
+  //   // console.log(123);
+  //   // GET data from github API using `axios`
+  //   axios
+  //     .get("https://api.github.com/users")
+  //     .then(res => console.log(res.data));
+  // }
 
+  // add STATE
+  state = {
+    users: [],
+    loading: false
+  };
+
+  // ASYNC Version
+  async componentDidMount() {
+    // change State on mount
+    this.setState({ loading: true }); // show loading GIF when data are loading
+
+    // console.log(123);
+    // GET ASYNC data from github API using `axios`
+    const res = await axios.get("https://api.github.com/users");
+    // console.log(res.data);
+    // show data when are ready and stop showing loading GIF
+    this.setState({ users: res.data, loading: false });
+  }
   render() {
     return (
       <div className="App">
         <Fragment>
-          {/* this component will get default props (Navbar.js)  */}
           <Navbar />
-
-          {/* or we can ad them directly */}
-          {/* <Navbar title="Github Finder" icon="fab fa-github" /> */}
           <div className="container">
-            <Users />
+            {/* add loading & users props */}
+            <Users loading={this.state.loading} users={this.state.users} />
           </div>
         </Fragment>
       </div>
