@@ -10,7 +10,7 @@ class UserItem extends Component {
   };
 
   render() {
-    //   we have also destructured properties from props object. Now we dont need to use this.state where were originally used
+    //   we have also destructured properties from props object. Now we don't need to use this.state where were originally used
     const { login, avatar_url, html_url } = this.state;
     return (
       <div className="card text-center">
