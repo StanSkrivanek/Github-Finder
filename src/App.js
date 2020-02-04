@@ -5,6 +5,10 @@ import "./App.css";
 import "./assets/fa/css/all.min.css";
 
 class App extends Component {
+  componentDidMount() {
+    console.log(123);
+  }
+
   render() {
     return (
       <div className="App">
