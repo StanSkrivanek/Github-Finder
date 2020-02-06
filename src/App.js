@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from "react";
 import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users";
+import Search from "./components/users/Search";
 import axios from "axios";
 import "./App.css";
 import "./assets/fa/css/all.min.css";
@@ -42,7 +43,7 @@ class App extends Component {
         <Fragment>
           <Navbar />
           <div className="container">
-            {/* add loading & users props */}
+            <Search />
             <Users loading={this.state.loading} users={this.state.users} />
           </div>
         </Fragment>
