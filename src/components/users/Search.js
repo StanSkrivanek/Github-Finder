@@ -5,22 +5,27 @@ export class Search extends Component {
   state = {
     text: ""
   };
-  onChangeHandleEvent = e => {
+
+  onChangeEvent = e => {
     // this.setState({ text: e.target.value });
     // If we have more fields as email, text etc we can use a small trick. We will set state to whatever value of name is
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmitHandleEvent = e => {
+  // function called on submit
+  onSubmitEvent = e => {
     // in arrow function we don't have to use `e.preventDefault` as AF works differently. We also omit `this.onSubmitHandleEvent.bind(this)
-    // e.preventDefault();
-    console.log(this.state.text);
+    e.preventDefault();
+    //  here we call props from Search component that is set in `App.js`
+    this.props.searchUsers(this.state.text);
+    this.setState({ text: "" });
   };
 
   render() {
     return (
       <div>
-        <form onSubmit={this.onSubmitHandleEvent} className="form">
+        {/* when we submit we call `onSubmitEvent` function*/}
+        <form onSubmit={this.onSubmitEvent} className="form">
           <input
             type="text"
             name="text"
@@ -28,7 +33,7 @@ export class Search extends Component {
             // set what will be value of input field
             value={this.state.text}
             // we have to apply onChange event to be able to write into input field and update `state`
-            onChange={this.onChangeHandleEvent}
+            onChange={this.onChangeEvent}
           />
           <input
             type="submit"

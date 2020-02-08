@@ -7,43 +7,42 @@ import "./App.css";
 import "./assets/fa/css/all.min.css";
 
 class App extends Component {
-  // Standard Version
-  // componentDidMount() {
-  //   // console.log(123);
-  //   // GET data from github API using `axios`
-  //   axios
-  //     .get("https://api.github.com/users")
-  //     .then(res => console.log(res.data));
-  // }
-
-  // add STATE
   state = {
     users: [],
     loading: false
   };
 
   // ASYNC Version
-  async componentDidMount() {
-    // console.log(process.env.REACT_APP_GITHUB_CLIENT_SECRET);
-    // change State on mount
-    this.setState({ loading: true }); // show loading GIF when data are loading
+  // async componentDidMount() {
+  //   // console.log(process.env.REACT_APP_GITHUB_CLIENT_SECRET);
+  //   // change State on mount
+  //   this.setState({ loading: true }); // show loading GIF when data are loading
 
-    // console.log(123);
-    // GET ASYNC data from github API using `axios`
+  //   // console.log(123);
+  //   // GET ASYNC data from github API using `axios`
+  //   const res = await axios.get(
+  //     `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+  //   );
+
+  //   this.setState({ users: res.data, loading: false });
+  // }
+
+  // search Github users
+  searchUsers = async text => {
     const res = await axios.get(
-      `https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+      // add query `q=${text}` to path
+      `https://api.github.com/search/users?q=${text}client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
-    // console.log(res.data);
-    // show data when are ready and stop showing loading GIF
-    this.setState({ users: res.data, loading: false });
-  }
+    this.setState({ users: res.data.items, loading: false });
+  };
   render() {
     return (
       <div className="App">
         <Fragment>
           <Navbar />
           <div className="container">
-            <Search />
+            {/* add `searchUsers` prop */}
+            <Search searchUsers={this.searchUsers} />
             <Users loading={this.state.loading} users={this.state.users} />
           </div>
         </Fragment>
