@@ -2,6 +2,7 @@ import React, { Fragment, Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users";
+import User from "./components/users/User";
 import Search from "./components/users/Search";
 import Alert from "./components/layout/Alert";
 import About from "./components/pages/About";
@@ -12,32 +13,42 @@ import "./assets/fa/css/all.min.css";
 class App extends Component {
   state = {
     users: [],
+    user: {}, // set new state `user` to be an empty object
     loading: false,
-    alert: null // set state of alert to `null`
+    alert: null
   };
 
   // search Github users
   searchUsers = async text => {
     this.setState({ loading: true });
     const res = await axios.get(
-      // add query `q=${text}` to path (https://developer.github.com/v3/search/ - Parameters QUERY)
       `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
     this.setState({ users: res.data.items, loading: false });
   };
-  // new clearUsers function to clear users from state
+
+  // GET single Github User
+  // username === login
+  getUser = async username => {
+    this.setState({ loading: true });
+    const res = await axios.get(
+      // add =${username}` to path and `?` after because client_id is our first parameter.
+      `https://api.github.com/users/${username}?&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    );
+    // set State for single `user` to res.data
+    this.setState({ user: res.data, loading: false });
+  };
+
   clearUsers = () => this.setState({ users: [], loading: false });
 
-  // set Alert function
   setAlert = (msg, type) => {
-    // this.setState({ alert: { msg: msg, type: type } });
     this.setState({ alert: { msg, type } });
     setTimeout(() => {
       this.setState({ alert: null });
     }, 1000);
   };
   render() {
-    const { users, loading } = this.state;
+    const { users, user, loading } = this.state;
     return (
       <Router>
         <div className="App">
@@ -62,6 +73,18 @@ class App extends Component {
                   )}
                 />
                 <Route exact path="/about" component={About} />
+                <Route
+                  exact
+                  path="/user/:login"
+                  render={props => (
+                    <User
+                      {...props}
+                      getUser={this.getUser}
+                      user={user}
+                      loading={loading}
+                    />
+                  )}
+                />
               </Switch>
             </div>
           </Fragment>
