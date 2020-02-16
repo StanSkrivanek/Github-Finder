@@ -50,7 +50,7 @@ export class Search extends Component {
         {/* when we submit this button we are sending information up to Parent. So we have to catch it in `App.js` where is component `Search` embedded. */}
         <button
           className="btn btn-light btn-block"
-          onChange={this.props.clearUsers}
+          onClick={this.props.clearUsers}
         >
           Clear
         </button>
