@@ -8,7 +8,8 @@ export class Search extends Component {
   };
 
   static propTypes = {
-    searchUsers: PropTypes.func.isRequired
+    searchUsers: PropTypes.func.isRequired,
+    clearUsers: PropTypes.func.isRequired
   };
 
   onChangeEvent = e => {
@@ -46,6 +47,13 @@ export class Search extends Component {
             className="btn btn-dark btn-block"
           />
         </form>
+        {/* when we submit this button we are sending information up to Parent. So we have to catch it in `App.js` where is component `Search` embedded. */}
+        <button
+          className="btn btn-light btn-block"
+          onChange={this.props.clearUsers}
+        >
+          Clear
+        </button>
       </div>
     );
   }

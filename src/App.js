@@ -26,6 +26,8 @@ class App extends Component {
     );
     this.setState({ users: res.data.items, loading: false });
   };
+  // new clearUsers function to clear users from state
+  clearUsers = () => this.setState({ users: [], loading: false });
 
   render() {
     return (
@@ -34,7 +36,10 @@ class App extends Component {
           <Navbar />
           <div className="container">
             {/* add `searchUsers` prop */}
-            <Search searchUsers={this.searchUsers} />
+            <Search
+              searchUsers={this.searchUsers}
+              clearUsers={this.clearUsers}
+            />
             <Users loading={this.state.loading} users={this.state.users} />
           </div>
         </Fragment>
