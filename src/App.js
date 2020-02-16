@@ -2,19 +2,16 @@ import React, { Fragment, Component } from "react";
 import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users";
 import Search from "./components/users/Search";
+import Alert from "./components/layout/Alert";
 import axios from "axios";
-import PropTypes from "prop-types";
 import "./App.css";
 import "./assets/fa/css/all.min.css";
 
 class App extends Component {
   state = {
     users: [],
-    loading: false
-  };
-
-  static propTypes = {
-    searchUsers: PropTypes.func.isRequired
+    loading: false,
+    alert: null // set state of alert to `null`
   };
 
   // search Github users
@@ -29,6 +26,14 @@ class App extends Component {
   // new clearUsers function to clear users from state
   clearUsers = () => this.setState({ users: [], loading: false });
 
+  // set Alert function
+  setAlert = (msg, type) => {
+    // this.setState({ alert: { msg: msg, type: type } });
+    this.setState({ alert: { msg, type } });
+    setTimeout(() => {
+      this.setState({ alert: null });
+    }, 1000);
+  };
   render() {
     // destructuring
     const { users, loading } = this.state;
@@ -37,12 +42,13 @@ class App extends Component {
         <Fragment>
           <Navbar />
           <div className="container">
-            {/* add `searchUsers` prop */}
+            {/* add `Alert` component` */}
+            <Alert alert={this.state.alert} />
             <Search
               searchUsers={this.searchUsers}
               clearUsers={this.clearUsers}
-              // show `clear` btn only if there are after search rendered some users
               showClear={users.length > 0 ? true : false}
+              setAlert={this.setAlert}
             />
             <Users loading={loading} users={users} />
           </div>

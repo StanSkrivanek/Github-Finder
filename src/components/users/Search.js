@@ -2,45 +2,45 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 export class Search extends Component {
-  // Seat state
   state = {
     text: ""
   };
 
   static propTypes = {
     searchUsers: PropTypes.func.isRequired,
-    clearUsers: PropTypes.func.isRequired
+    clearUsers: PropTypes.func.isRequired,
+    showClear: PropTypes.bool.isRequired,
+    setAlert: PropTypes.func.isRequired
+  };
+
+  onSubmitEvent = e => {
+    // set condition if search field is submitted empty (no string to search)
+    e.preventDefault();
+    if (this.state.text === "") {
+      // function setAlert take 2 parameters (1.text of alert to be shown 2. type (based on CSS) as danger, success etc. )
+      this.props.setAlert("Please enter some text", "light");
+    } else {
+      this.props.searchUsers(this.state.text);
+      this.setState({ text: "" });
+    }
   };
 
   onChangeEvent = e => {
-    // this.setState({ text: e.target.value });
-    // If we have more INPUT fields as email, text etc we can use a small trick. We will set state to whatever value of name is
     this.setState({ [e.target.name]: e.target.value });
-  };
-
-  // function called on submit
-  onSubmitEvent = e => {
-    //  We can omit binding `this` with `this.onSubmitHandleEvent.bind(this) as AF works differently with `this`.
-    e.preventDefault();
-    //  here we call props from Search component that is set in `App.js`
-    this.props.searchUsers(this.state.text);
-    this.setState({ text: "" });
   };
 
   render() {
     // to shorting code we can use destructuring
     const { showClear, clearUsers } = this.props;
+
     return (
       <div>
-        {/* when we submit we call `onSubmitEvent` function*/}
         <form onSubmit={this.onSubmitEvent} className="form">
           <input
             type="text"
             name="text" // name we call with [e.target.name]
             placeholder="Search Users..."
-            // set what will be value of input field
             value={this.state.text}
-            // we have to apply onChange event to be able to write into input field and update `state`
             onChange={this.onChangeEvent}
           />
           <input
@@ -49,7 +49,6 @@ export class Search extends Component {
             className="btn btn-dark btn-block"
           />
         </form>
-        {/* when we submit this button we are sending information up to Parent. So we have to catch it in `App.js` where is component `Search` embedded. */}
         {showClear && ( //this.props.showClear
           <button
             className="btn btn-light btn-block"
