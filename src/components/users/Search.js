@@ -28,6 +28,8 @@ export class Search extends Component {
   };
 
   render() {
+    // to shorting code we can use destructuring
+    const { showClear, clearUsers } = this.props;
     return (
       <div>
         {/* when we submit we call `onSubmitEvent` function*/}
@@ -48,12 +50,14 @@ export class Search extends Component {
           />
         </form>
         {/* when we submit this button we are sending information up to Parent. So we have to catch it in `App.js` where is component `Search` embedded. */}
-        <button
-          className="btn btn-light btn-block"
-          onClick={this.props.clearUsers}
-        >
-          Clear
-        </button>
+        {showClear && ( //this.props.showClear
+          <button
+            className="btn btn-light btn-block"
+            onClick={clearUsers} // this.props.clearUsers
+          >
+            Clear
+          </button>
+        )}
       </div>
     );
   }

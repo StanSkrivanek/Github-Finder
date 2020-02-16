@@ -30,6 +30,8 @@ class App extends Component {
   clearUsers = () => this.setState({ users: [], loading: false });
 
   render() {
+    // destructuring
+    const { users, loading } = this.state;
     return (
       <div className="App">
         <Fragment>
@@ -39,8 +41,10 @@ class App extends Component {
             <Search
               searchUsers={this.searchUsers}
               clearUsers={this.clearUsers}
+              // show `clear` btn only if there are after search rendered some users
+              showClear={users.length > 0 ? true : false}
             />
-            <Users loading={this.state.loading} users={this.state.users} />
+            <Users loading={loading} users={users} />
           </div>
         </Fragment>
       </div>
