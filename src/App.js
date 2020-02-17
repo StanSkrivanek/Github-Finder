@@ -19,22 +19,11 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(null);
 
-  const searchUsers = async text => {
-    setLoading(true);
-    const res = await axios.get(
-      `https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
-    );
-    // this.setState({ users: res.data.items, loading: false });
-    setUsers(res.data.items);
-    setLoading(false);
-  };
-
   const getUser = async username => {
     setLoading(true);
     const res = await axios.get(
       `https://api.github.com/users/${username}?&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
-    // this.setState({ user: res.data, loading: false });
     setUser(res.data);
     setLoading(false);
   };
@@ -43,11 +32,8 @@ const App = () => {
     // this.setState({ loading: true });
     setLoading(true);
     const res = await axios.get(
-      // change path to `${username}/repos?per_page=5&sort=created:asc`
       `https://api.github.com/users/${username}/repos?per_page=5&sort=created:asc&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
     );
-
-    // this.setState({ repos: res.data, loading: false });
     setRepos(res.data);
     setLoading(false);
   };
@@ -60,11 +46,6 @@ const App = () => {
   const showAlert = (msg, type) => {
     setAlert({ msg, type });
     setTimeout(() => setAlert(null), 1000);
-
-    // this.setState({ alert: { msg, type } });
-    // setTimeout(() => {
-    //   this.setState({ alert: null });
-    // }, 1000);
   };
 
   return (
@@ -83,7 +64,7 @@ const App = () => {
                   render={props => (
                     <Fragment>
                       <Search
-                        searchUsers={searchUsers}
+                        // searchUsers={searchUsers}
                         clearUsers={clearUsers}
                         showClear={users.length > 0 ? true : false}
                         showAlert={showAlert}
