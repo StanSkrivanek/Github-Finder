@@ -10,8 +10,21 @@ export default (state, action) => {
   switch (action.type) {
     case SEARCH_USERS:
       return {
+        // get whatever is in state at this moment
         ...state,
         users: action.payload,
+        loading: false
+      };
+    case GET_USER:
+      return {
+        ...state,
+        user: action.payload,
+        loading: false
+      };
+    case CLEAR_USERS:
+      return {
+        ...state,
+        users: [],
         loading: false
       };
     case SET_LOADING:

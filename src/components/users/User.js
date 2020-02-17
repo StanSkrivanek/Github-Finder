@@ -1,23 +1,17 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useContext } from "react";
 import Spinner from "../layout/Spinner";
 import Repos from "../repos/Repos";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import GithubContext from "../../context/github/githubContext";
 
-const User = ({ user, loading, getUser, getUserRepos, repos, match }) => {
-  // we need to add second parameter `[]` to stop `useEffect` run in infinite loop
+const User = ({ getUserRepos, repos, match }) => {
+  const githubContext = useContext(GithubContext);
+  const { user, loading, getUser } = githubContext;
+
   useEffect(() => {
     getUser(match.params.login);
     getUserRepos(match.params.login);
-    // second parameter of `useEffect` is `[]` inside we can place conditions that are called `dependencies` and they let us  specify WHEN hook `useEffect` will run
-
-    // if we set [user] as second parameter code will run ONLY if `user` prop will update
-    // if we set [repo] as second parameter code will run ONLY if `repo` prop will update
-    // if we set as second parameter `[]`,  code will run if any prop will update (but it will run `useEffect` each time only once. This will prevent infinite call loop)
-
-    // there are cases where we get this warning : React Hook useEffect has missing dependencies: 'getUser', 'getUserRepos', and 'match.params.login'. Either include them or remove the dependency array. If 'getUser' changes too often, find the parent component that defines it and wrap that definition in useCallback  react-hooks/exhaustive-deps
-
-    // if so we can add this simple comment to let warning message dissapear
     // eslint-disable-next-line
   }, []);
 
@@ -111,10 +105,6 @@ const User = ({ user, loading, getUser, getUserRepos, repos, match }) => {
   );
 };
 User.propTypes = {
-  loading: PropTypes.bool,
-  user: PropTypes.object.isRequired,
-  repos: PropTypes.array.isRequired,
-  getUser: PropTypes.func.isRequired,
   getUserRepos: PropTypes.func.isRequired
 };
 
