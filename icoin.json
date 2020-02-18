@@ -1,0 +1,49 @@
+{
+  "WhoisRecord": {
+    "domainName": "i-coin.io",
+    "parseCode": 8,
+    "audit": {
+      "createdDate": "2020-02-15 16:00:15.943 UTC",
+      "updatedDate": "2020-02-15 16:00:15.943 UTC"
+    },
+    "registrarName": "EPAG Domainservices GmbH",
+    "registrarIANAID": "85",
+    "registryData": {
+      "createdDate": "2020-01-10T09:37:41Z",
+      "updatedDate": "2020-01-13T07:41:07Z",
+      "expiresDate": "2021-01-10T09:37:41Z",
+      "registrant": {
+        "country": "CANADA",
+        "countryCode": "CA",
+        "rawText": "Registrant Country: CA"
+      },
+      "domainName": "i-coin.io",
+      "nameServers": {
+        "rawText": "CASH.NS.CLOUDFLARE.COM\nTANI.NS.CLOUDFLARE.COM\n",
+        "hostNames": ["CASH.NS.CLOUDFLARE.COM", "TANI.NS.CLOUDFLARE.COM"],
+        "ips": []
+      },
+      "status": "clientDeleteProhibited clientTransferProhibited clientUpdateProhibited serverTransferProhibited",
+      "rawText": "Domain Name: I-COIN.IO\nRegistry Domain ID: D503300001182809351-LRMS\nRegistrar WHOIS Server:\nRegistrar URL: http://www.epag.de\nUpdated Date: 2020-01-13T07:41:07Z\nCreation Date: 2020-01-10T09:37:41Z\nRegistry Expiry Date: 2021-01-10T09:37:41Z\nRegistrar Registration Expiration Date:\nRegistrar: EPAG Domainservices GmbH\nRegistrar IANA ID: 85\nRegistrar Abuse Contact Email:\nRegistrar Abuse Contact Phone:\nReseller:\nDomain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited\nDomain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited\nDomain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited\nDomain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited\nRegistrant Organization:\nRegistrant State/Province:\nRegistrant Country: CA\nName Server: CASH.NS.CLOUDFLARE.COM\nName Server: TANI.NS.CLOUDFLARE.COM\nDNSSEC: unsigned\n\n>>> Last update of WHOIS database: 2020-02-15T15:59:15Z <<<\n\nFor more information on Whois status codes, please visit https://icann.org/epp\n\nAccess to WHOIS information provided by Internet Computer Bureau Ltd. ICB is provided to assist persons in determining the contents of a domain name registration record in the ICB registry database. The data in this record is provided by ICB for informational purposes only, and ICB does not guarantee its accuracy. This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to(i) allow, enable, or otherwise support the transmission by e-mail, telephone, facsimile or other electronic means of mass, unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (ii) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or ICB or its services providers except as reasonably necessary to register domain names or modify existing registrations. UK privacy laws limit the scope of information permitted for certain public access.  Therefore, concerns regarding abusive use of domain registrations in the ICB registry should be directed to either (a) the Registrar of Record as indicated in the WHOIS output, or (b) the ICB anti-abuse department at abuse@icbregistry.info.\n\nAll rights reserved. ICB reserves the right to modify these terms at any time. By submitting this query, you agree to abide by these policies",
+      "parseCode": 1275,
+      "header": "",
+      "strippedText": "Domain Name: I-COIN.IO\nRegistry Domain ID: D503300001182809351-LRMS\nRegistrar WHOIS Server:\nRegistrar URL: http://www.epag.de\nUpdated Date: 2020-01-13T07:41:07Z\nCreation Date: 2020-01-10T09:37:41Z\nRegistry Expiry Date: 2021-01-10T09:37:41Z\nRegistrar Registration Expiration Date:\nRegistrar: EPAG Domainservices GmbH\nRegistrar IANA ID: 85\nRegistrar Abuse Contact Email:\nRegistrar Abuse Contact Phone:\nReseller:\nDomain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited\nDomain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited\nDomain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited\nDomain Status: serverTransferProhibited https://icann.org/epp#serverTransferProhibited\nRegistrant Organization:\nRegistrant State/Province:\nRegistrant Country: CA\nName Server: CASH.NS.CLOUDFLARE.COM\nName Server: TANI.NS.CLOUDFLARE.COM\nDNSSEC: unsigned\n>>> Last update of WHOIS database: 2020-02-15T15:59:15Z <<<\nFor more information on Whois status codes, please visit https://icann.org/epp\nAccess to WHOIS information provided by Internet Computer Bureau Ltd. ICB is provided to assist persons in determining the contents of a domain name registration record in the ICB registry database. The data in this record is provided by ICB for informational purposes only, and ICB does not guarantee its accuracy. This service is intended only for query-based access. You agree that you will use this data only for lawful purposes and that, under no circumstances will you use this data to(i) allow, enable, or otherwise support the transmission by e-mail, telephone, facsimile or other electronic means of mass, unsolicited, commercial advertising or solicitations to entities other than the data recipient's own existing customers; or (ii) enable high volume, automated, electronic processes that send queries or data to the systems of Registry Operator, a Registrar, or ICB or its services providers except as reasonably necessary to register domain names or modify existing registrations. UK privacy laws limit the scope of information permitted for certain public access.  Therefore, concerns regarding abusive use of domain registrations in the ICB registry should be directed to either (a) the Registrar of Record as indicated in the WHOIS output, or (b) the ICB anti-abuse department at abuse@icbregistry.info.\nAll rights reserved. ICB reserves the right to modify these terms at any time. By submitting this query, you agree to abide by these policies\n",
+      "audit": {
+        "createdDate": "2020-02-15 16:00:15.943 UTC",
+        "updatedDate": "2020-02-15 16:00:15.943 UTC"
+      },
+      "registrarName": "EPAG Domainservices GmbH",
+      "registrarIANAID": "85",
+      "createdDateNormalized": "2020-01-10 09:37:41 UTC",
+      "updatedDateNormalized": "2020-01-13 07:41:07 UTC",
+      "expiresDateNormalized": "2021-01-10 09:37:41 UTC",
+      "customField3Name": "RegistrarURL",
+      "customField3Value": "http://www.epag.de",
+      "whoisServer": "whois.nic.io"
+    },
+    "domainAvailability": "UNAVAILABLE",
+    "contactEmail": "abuse@icbregistry.info",
+    "domainNameExt": ".io",
+    "estimatedDomainAge": 36
+  }
+}
